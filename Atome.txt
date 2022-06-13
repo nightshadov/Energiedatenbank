@@ -1,0 +1,51 @@
+Energieträger (En)
+	Steinkohle
+	Braunkohle
+	Kraftstoff
+		Motorbenzin
+		Flug
+		Diesel
+		Fluessiggas
+		Rest
+	Biokraftstoff
+	Oel	
+		Heiz
+			Schwer
+			Leicht
+		Rest
+	Gas
+		Natur
+		Rest
+	Strom
+	Fernwärme
+	Erneuerbare
+	Sonstige
+
+Jahr
+	1990
+	1991
+	...
+	2020
+
+Anwendungsbereich (Anw)
+	Raumwaerme
+	Warmwasser
+	Sonstprozesswaerme
+	Klimakaelte
+	Sonstprozesskaelte
+	Mechenergie
+	IKT
+	Beleuchtung
+
+Sektoren (Sekt)
+	Industrie
+	Verkehr
+	Haushalte
+	GHD
+
+damit wären
+
+6	=En x Jahr
+6a	=En x Jahr x Sekt
+7	=En x Jahr x Anw
+7a+7b	=En x Jahr x Anw x Sekt
