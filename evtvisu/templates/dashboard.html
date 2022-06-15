@@ -1,0 +1,68 @@
+{% extends 'sub/main.html' %}
+{% block content %}
+    <div class="px-10 py-7">
+        <h1 class="text-3xl text-gray-600 dark:text-gray-200 font-semibold">Dashboard</h1>
+    </div>
+    <div class="grid grid-cols-12 gap-4 px-10">
+        <div class="col-span-6 bg-white rounded-lg shadow-md p-2">
+            <canvas id="chart0" width="16" height="8"></canvas>
+        </div>
+        <div class="col-span-6 bg-white rounded-lg shadow-md p-2">
+            <canvas id="chart1" width="16" height="8"></canvas>
+        </div>
+        <div class="col-span-6 bg-white rounded-lg shadow-md p-2">
+            <canvas id="chart2" width="16" height="8"></canvas>
+        </div>
+        <div class="col-span-6 bg-white rounded-lg shadow-md p-2">
+            <canvas id="chart3" width="16" height="8"></canvas>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {% autoescape off %}
+        <script>
+
+            {% for data in data_set %}
+                var chart{{ i }} = new chartjs(document.getElementById('chart{{ forloop.counter0 }}').getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: {{ data.labels }},
+                        datasets: [
+                            {% for datum in data.data %}
+                                {
+                                    data: {{ datum }},
+                                    label: "Line {{ forloop.counter0 }}",
+                                    fill: false,
+                                    borderColor: colors[{{ forloop.counter0 }}],
+                                },
+                            {% endfor %}
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            xAxes: {
+                                type: 'time',
+                                time: {
+                                    displayFormats: {
+                                        'millisecond': 'HH:MM',
+                                        'second': 'HH:MM',
+                                        'minute': 'HH:MM',
+                                        'hour': 'HH:MM',
+                                        'day': 'HH:MM',
+                                        'week': 'HH:MM',
+                                        'month': 'HH:MM',
+                                        'quarter': 'HH:MM',
+                                        'year': 'HH:MM',
+                                    }
+                                }
+                            }
+                        },
+                    },
+
+                });
+            {% endfor %}
+        </script>
+    {% endautoescape %}
+{% endblock %}
