@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class EnergySource(models.Model):
     energy_source_id = models.AutoField(primary_key=True)
-    name = models.CharField(blank=True, null=True)
+    name = models.CharField(blank=True, null=True, max_length=30)
 
 class Year(models.Model):
     year_id = models.IntegerField(primary_key=True)
@@ -15,11 +15,11 @@ class Year(models.Model):
 
 class Application(models.Model):
     application_id = models.AutoField(primary_key=True)
-    name = models.CharField(blank=True, null=True)
+    name = models.CharField(blank=True, null=True, max_length=30)
 
 class Sector(models.Model):
     sector_id = models.AutoField(primary_key=True)
-    name = models.CharField(blank=True, null=True)
+    name = models.CharField(blank=True, null=True, max_length=30)
 
 class EnYear(models.Model):
     en_year_id = models.AutoField(primary_key=True)

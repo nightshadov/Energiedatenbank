@@ -11,10 +11,11 @@ def dashboard(request):
     print(EnYear.objects)
 
 
-    dia_data = [{'labels': [], 'name': [], 'data': [[], [], []]},
-                {'labels': [], 'name': [], 'data': [[], [], [], []]},
-                {'labels': [], 'name': [], 'data': [[], [], []]}
-                ]
+    dia_data = [{
+        'labels': [],
+        'name': [],
+        'data': [[], [], []]
+    }]
     """
     for point in data_almemo:
         t = point[0]

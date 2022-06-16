@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ExperimentLog, AlmemoLog, EnYear
+from .models import  EnYear
 
 
 
