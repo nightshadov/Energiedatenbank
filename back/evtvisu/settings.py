@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'core',
     'frontend',
-    'django_tables2'
 ]
 
 MIDDLEWARE = [

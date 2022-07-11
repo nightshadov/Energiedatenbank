@@ -1,4 +1,5 @@
 Energieträger (En)
+	Kohle
 	Steinkohle
 	Braunkohle
 	Kraftstoff

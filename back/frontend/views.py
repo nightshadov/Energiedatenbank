@@ -4,13 +4,11 @@ import json
 from django.shortcuts import render
 
 # Create your views here.
-from core.models import EnYear, EnYearAppl, EnYearSectAppl
+from core.models import EnYear
 
 
 def dashboard(request):
-    print("request")
-    print(EnYearSectAppl.objects.all())
-
+    print(EnYear.objects)
 
 
     dia_data = [{
@@ -28,8 +26,7 @@ def dashboard(request):
         dia_data[2]['name'] = ['m1_rz_actual', 'm2_rz_actual', 'm1_rl_actual', 'm2_rl_actual']
     """
     context = {
-        'data_set': dia_data,
-        'table': EnYear.objects.all()
+        'data_set': dia_data
     }
 
     return render(request, 'dashboard.html', context)

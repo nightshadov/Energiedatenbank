@@ -1,4 +1,6 @@
 {% extends 'sub/main.html' %}
+{% load render_table from django_tables2 %}
+{% load static %}
 {% block content %}
     <div class="px-10 py-7">
         <h1 class="text-3xl text-gray-600 dark:text-gray-200 font-semibold">Dashboard</h1>
@@ -17,11 +19,15 @@
             <canvas id="chart3" width="16" height="8"></canvas>
         </div>
     </div>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    {% render_table table %}
 {% endblock %}
+
 {% block js %}
+
     {% autoescape off %}
         <script>
+
 
             {% for data in data_set %}
                 var chart{{ i }} = new chartjs(document.getElementById('chart{{ forloop.counter0 }}').getContext('2d'), {
